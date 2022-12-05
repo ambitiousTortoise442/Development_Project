@@ -2,7 +2,7 @@ import React from 'react'
 
 const ShoppingCart:React.FC = () => {
   return (
-    <div>ShoppingCart</div>
+    <div className='shopping_cart'>ShoppingCart</div>
   )
 }
 

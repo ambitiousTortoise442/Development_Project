@@ -2,18 +2,29 @@
 
 .App {
   width: 100vw;
-  height: 100vw;
+  height: 150vw;
   display: flex;
   flex-direction: column;
-  align-items: center;
   background-color: #CCD5AE;
+  align-items: center;
   font-family: "Neucha", cursive;
 }
-.store_contents {
-  display: flex;
-  flex-direction: row;
+.heading_container {
+  margin-bottom: 0px;
+}
+.heading_img {
+  width: 150px;
+  height: 150px;
+  margin-right: 50px;
 }
 
+@media (max-width: 500px) {
+  .heading_img {
+    width: 50px;
+    height: 50px;
+    margin-right: 25px;
+  }
+}
 .heading {
   font-size: 40px;
   margin: 30px 0;
@@ -21,13 +32,14 @@
   /* Keeps this element on the top layer of the screen */
   z-index: 1;
   text-align: center;
+  background-color: #CCD5AE;
 }
-
+.html, body {
+  background-color: #CCD5AE;
+}
 @media (max-width: 800px) {
   .heading {
     margin: 15px 0;
     font-size: 35px;
   }
 }
-
-
