@@ -10,19 +10,17 @@ import item from './model';
 
 
 const App: React.FC = (): JSX.Element => {
-  let [cart, setCart] = useState<Map<string, number>>();
+  //States
+  const [cart, setCart] = useState<item[]>([]);
   const [total, updateTotal] = useState(0);
+
   //Increment the cart total
   function addTotal(store_item: item) {
     updateTotal(total + store_item.price)
   }
   //Update cart map 
-  function addCart(store_item:item) {
-      if (cart?.get(store_item.name) === undefined) {
-        cart?.set(store_item.name, 1)
-      } else {
-        setCart(cart?.set(store_item.name, cart.get(store_item.name)! + 1));
-      }
+  function addCart(store_item: item) {
+    setCart([...cart, store_item])
   }
   //function for onClick inside Store Item Component
   const handleClick = (store_item: item): void => {
@@ -33,7 +31,7 @@ const App: React.FC = (): JSX.Element => {
   return (
     <div className='App'>
       <div className='heading_container'>
-        <SiFoodpanda className='heading_img'/>
+        <SiFoodpanda className='heading_img' />
         <span className='heading'>Ambitious Manga Store</span>
       </div>
 
@@ -43,11 +41,13 @@ const App: React.FC = (): JSX.Element => {
         </Row>
         <Row>
           <Col>
-           {/* 
+            {/* 
             // @ts-ignore */}
-            <Store handleClick={handleClick}/>
+            <Store handleClick={handleClick} />
           </Col>
           <Col>
+            {/* 
+            // @ts-ignore */}
             <ShoppingCart cart={cart} />
           </Col>
         </Row>
